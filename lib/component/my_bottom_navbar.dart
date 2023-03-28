@@ -23,7 +23,7 @@ class MyBottomNavBar extends StatelessWidget {
               text: "Home",
             ),
             GButton(
-              icon: Icons.sports_volleyball_outlined ,
+              icon: Icons.language_outlined ,
               gap: 5,
               text: "Network",
             ),

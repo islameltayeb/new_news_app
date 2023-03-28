@@ -37,7 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   smooth_page_indicator: ^1.0.1
   google_nav_bar: ^5.0.6
-  list_wheel_scroll_view_nls: ^0.0.3
+  scroll_snap_list: ^0.9.1
+
 
 
 dev_dependencies:

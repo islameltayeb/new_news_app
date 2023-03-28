@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_news_app/screens/home_screens/recommendation.dart';
+import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -40,85 +41,99 @@ class HomeScreen extends StatelessWidget {
           ),
 
           ///category of news
+          SizedBox(
+              height: 200,
+              child: ScrollSnapList(
+                listController: controller,
+                itemBuilder: (p0, p1) => Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(22),
+                      child: Image.asset(
+                        "assets/images/sportcate.jpg",
+                        //height: 600,
 
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(22),
-                child: Image.asset(
-                  "assets/images/sportcate.jpg",
-                  height: MediaQuery.of(context).size.height * .27,
-                ),
-              ),
-              Positioned(
-                top: 20,
-                left: 20,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(22),
-                    color: Colors.blue.shade600,
-                  ),
-                  child: const Text(
-                    "Sports",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 74,
-                left: 20,
-                child: Row(
-                  children: const [
-                    Text(
-                      "CNN Indonesia ",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold),
+                    Positioned(
+                      top: 20,
+                      left: 20,
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(22),
+                          color: Colors.blue.shade600,
+                        ),
+                        child: const Text(
+                          "Sports",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
-                    Icon(
-                      Icons.check_circle,
-                      color: Colors.blue,
-                      size: 18,
+                    Positioned(
+                      bottom: 74,
+                      left: 20,
+                      child: Row(
+                        children: const [
+                          Text(
+                            "CNN Indonesia ",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Icon(
+                            Icons.check_circle,
+                            color: Colors.blue,
+                            size: 18,
+                          ),
+                          Text(
+                            " . 6 hours ago ",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      " . 6 hours ago ",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
+                    const Positioned(
+                      //right: 20,
+                      bottom: 18,
+                      left: 20,
+                      child: Text(
+                        "Alexander wears modified \n helmet in road races",
+                        style: TextStyle(fontSize: 22, color: Colors.white),
                       ),
                     ),
                   ],
                 ),
-              ),
-              const Positioned(
-                //right: 20,
-                bottom: 18,
-                left: 20,
-                child: Text(
-                  "Alexander wears modified \n helmet in road races",
-                  style: TextStyle(fontSize: 22, color: Colors.white),
-                ),
-              ),
-            ],
-          ),
+                itemCount: 5,
+                itemSize: 310,
+                onItemFocus: (p0) {},
+                dynamicItemSize: true,
+
+
+              ),),
+
           const SizedBox(
             height: 10,
           ),
           SmoothPageIndicator(
               controller: controller, // PageController
-              count: 6,
-              effect: WormEffect(
+              count: 5,
+              effect: ExpandingDotsEffect(
                   spacing: 3,
-                  dotHeight: 8,
-                  dotWidth: 8,
-                  type: WormType.thin,
+                  dotHeight: 15,
+                  dotWidth: 10,
                   dotColor: Colors.grey.shade400), // your preferred effect
-              onDotClicked: (index) {}),
+              onDotClicked: (index) {},
+
+          ),
           const SizedBox(
             height: 10,
           ),
@@ -147,7 +162,7 @@ class HomeScreen extends StatelessWidget {
           ),
           Expanded(
               child: ListView.builder(
-            itemCount: 2,
+            itemCount: 10,
             itemBuilder: (context, index) {
               return const Recommendation();
             },

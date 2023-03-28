@@ -5,6 +5,6 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("islam"),);
+    return Center(child: Text("eltayeb"),);
   }
 }
