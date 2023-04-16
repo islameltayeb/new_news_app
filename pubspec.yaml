@@ -38,6 +38,12 @@ dependencies:
   smooth_page_indicator: ^1.0.1
   google_nav_bar: ^5.0.6
   scroll_snap_list: ^0.9.1
+  carousel_slider: ^4.2.1
+  intl: ^0.18.0
+  provider: ^6.0.5
+  simple_animations: ^5.0.0
+  http: ^0.13.5
+  url_launcher: ^6.1.8
 
 
 

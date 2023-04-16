@@ -3,13 +3,15 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MyBottomNavBar extends StatelessWidget {
   void Function(int)? onTabChange;
+
   MyBottomNavBar({required this.onTabChange});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 15, left: 10),
       child: GNav(
-        onTabChange: onTabChange,
+          onTabChange: onTabChange,
           activeColor: Colors.white,
           color: Colors.grey,
           tabBackgroundColor: Colors.blue.shade800,
@@ -23,7 +25,7 @@ class MyBottomNavBar extends StatelessWidget {
               text: "Home",
             ),
             GButton(
-              icon: Icons.language_outlined ,
+              icon: Icons.language_outlined,
               gap: 5,
               text: "Network",
             ),

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:new_news_app/component/my_bottom_navbar.dart';
+import 'package:new_news_app/models/news_item.dart';
+import 'package:new_news_app/widgets/custom_bottom_navbar.dart';
 import 'package:new_news_app/screens/home_screens/home_screen.dart';
 import 'package:new_news_app/screens/home_screens/recommendation.dart';
 import 'package:new_news_app/screens/network.dart';
 import 'package:new_news_app/screens/profile.dart';
-import 'package:new_news_app/screens/saved.dart';
+import 'package:new_news_app/save_screen/saved.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../widgets/news_search.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -22,11 +25,10 @@ class _HomeState extends State<Home> {
       selectIndex = index;
     });
   }
-
   final List<Widget> pages = [
     const HomeScreen(),
-    const Network(),
-    const Saved(),
+     Network(),
+     Saved(),
     const Profile(),
   ];
 
@@ -44,7 +46,7 @@ class _HomeState extends State<Home> {
           margin: EdgeInsets.only(left: 10),
           child: CircleAvatar(
             radius: 10,
-            backgroundColor: Colors.grey[350],
+            backgroundColor: Colors.grey.withOpacity(.3),
             child: Icon(
               Icons.menu_outlined,
               color: Colors.black,
@@ -54,9 +56,12 @@ class _HomeState extends State<Home> {
         actions: [
           CircleAvatar(
             radius: 23,
-            backgroundColor: Colors.grey[350],
-            child: const Icon(
-              Icons.search_outlined,
+            backgroundColor: Colors.grey.withOpacity(.3),
+            child:  IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate:NewsSearch());
+              },
+             icon:Icon(Icons.search_outlined) ,
               color: Colors.black,
             ),
           ),
@@ -67,7 +72,7 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(8.0),
             child: CircleAvatar(
               radius: 23,
-              backgroundColor: Colors.grey[350],
+              backgroundColor: Colors.grey.withOpacity(.3),
               child: const Icon(
                 Icons.notification_add_outlined,
                 color: Colors.black,
